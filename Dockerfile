@@ -1,5 +1,5 @@
 #con esto me estoy basando en una imagen de node con todas sus caracteristicas
-FROM node:20-alpine3.15
+FROM node:20-buster-slim
 
 # Set working directory
 #con este creo el directorio en el pach del contenedor
