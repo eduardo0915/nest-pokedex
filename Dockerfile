@@ -11,8 +11,6 @@ WORKDIR /var/www/pokedex
 COPY . /var/www/pokedex
 COPY package.json tsconfig.json tsconfig.build.json /var/www/pokedex/
 RUN npm install --prod
-# Instala el CLI de Nest.js
-RUN npm global add @nestjs/cli
 RUN npm build
 
 
