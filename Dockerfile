@@ -10,8 +10,10 @@ WORKDIR /var/www/pokedex
 # con esto copio todo mi proyecto en esa ruta
 COPY . /var/www/pokedex
 COPY package.json tsconfig.json tsconfig.build.json /var/www/pokedex/
-RUN yarn install --prod
-RUN yarn build
+RUN npm install --prod
+# Instala el CLI de Nest.js
+RUN npm global add @nestjs/cli
+RUN npm build
 
 
 # Dar permiso para ejecutar la applicación
@@ -20,14 +22,10 @@ RUN adduser --disabled-password pokeuser
 RUN chown -R pokeuser:pokeuser /var/www/pokedex
 USER pokeuser
 
-# Instala el CLI de Nest.js
-RUN yarn global add @nestjs/cli
 
-# Instala las dependencias de la aplicación
-RUN yarn install
 
 # Limpiar el caché
-RUN yarn cache clean --force
+RUN npm cache clean --force
 
 EXPOSE 3000
 
