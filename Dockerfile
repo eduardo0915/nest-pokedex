@@ -8,7 +8,7 @@ WORKDIR /var/www/pokedex
 
 # Copiar el directorio y su contenido
 # con esto copio todo mi proyecto en esa ruta
-COPY . ./var/www/pokedex
+COPY . /var/www/pokedex
 COPY package.json tsconfig.json tsconfig.build.json /var/www/pokedex/
 RUN yarn install --prod
 RUN yarn build
@@ -19,6 +19,8 @@ RUN yarn build
 RUN adduser --disabled-password pokeuser
 RUN chown -R pokeuser:pokeuser /var/www/pokedex
 USER pokeuser
+
+RUN yarn global add @nestjs/cli
 
 # Limpiar el caché
 RUN yarn cache clean --force
