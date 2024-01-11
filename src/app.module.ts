@@ -20,7 +20,7 @@ import { JoiValidationSchema } from './common/config/joi.validation';
     }),
 
     MongooseModule.forRoot(
-      'mongodb+srv://eduardo:elm141595@cluster0.61bwl5d.mongodb.net/nest-pokemon',
+      'mongodb+srv://eduardo:elm141595@cluster0.61bwl5d.mongodb.net',
     ),
     PokemonModule,
     CommonModule,
