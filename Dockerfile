@@ -10,8 +10,8 @@ WORKDIR /var/www/pokedex
 # con esto copio todo mi proyecto en esa ruta
 COPY . /var/www/pokedex
 COPY package.json tsconfig.json tsconfig.build.json /var/www/pokedex/
-RUN npm install --prod
-RUN npm run build
+RUN yarn install --prod
+RUN yarn build
 
 
 # Dar permiso para ejecutar la applicación
@@ -23,8 +23,8 @@ USER pokeuser
 
 
 # Limpiar el caché
-RUN npm run cache clean --force
+RUN yarn cache clean --force
 
 EXPOSE 3000
 
-CMD [ "npm run","start" ]
+CMD [ "yarn","start" ]
