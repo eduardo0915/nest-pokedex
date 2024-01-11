@@ -28,4 +28,8 @@ import { JoiValidationSchema } from './common/config/joi.validation';
   ],
   exports: [PokemonModule],
 })
-export class AppModule {}
+export class AppModule {
+  constructor() {
+    console.log(process.env.MONGODB);
+  }
+}
