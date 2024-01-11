@@ -20,7 +20,11 @@ RUN adduser --disabled-password pokeuser
 RUN chown -R pokeuser:pokeuser /var/www/pokedex
 USER pokeuser
 
+# Instala el CLI de Nest.js
 RUN yarn global add @nestjs/cli
+
+# Instala las dependencias de la aplicación
+RUN yarn install
 
 # Limpiar el caché
 RUN yarn cache clean --force
